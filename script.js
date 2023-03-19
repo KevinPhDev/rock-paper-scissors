@@ -20,6 +20,8 @@ function playRound(playerSelection, computerSelection) {
         return `You Win! Scissors beats Paper! Player: ${playerScore} Computer: ${computerScore}`;
     } else if (playerSelection === computerSelection) {
         return `It's a Draw! Player: ${playerScore} Computer: ${computerScore}`;
+    } else {
+        return playerSelection;
     }
 }
 
