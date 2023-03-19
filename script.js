@@ -37,21 +37,21 @@ let computerScore = 0;
     if (playRound(playerSelection, computerSelection).slice(0, 8) === "You Lose") {
         computerScore++;
     }
-    console.log(playRound(playerSelection, computerSelection));
+    alert(playRound(playerSelection, computerSelection));
  }
 
  for (let i = 1; i <= 5; i++) {
     game();
     if (i == 5 && (playerScore > computerScore)) {
-        console.log("Game Won!");
+        alert("Game Won!");
         break;
     }
     if (i == 5 && (playerScore < computerScore)) {
-        console.log("Game Lost!");
+        alert("Game Lost!");
         break;
     }
     if (i == 5 && (playerScore === computerScore)) {
-        console.log("Game Draw");
+        alert("Game Draw");
         break;
     }
  }
