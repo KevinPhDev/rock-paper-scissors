@@ -27,18 +27,19 @@ function playRound(playerSelection, computerSelection) {
 
 let playerScore = 0;
 let computerScore = 0;
+let playerSelection = '';
+let computerSelection = getComputerChoice();
 
- function game() {
-    const playerSelection = prompt("Enter Rock, Paper or Scissors").toUpperCase();
-    const computerSelection = getComputerChoice();
-    if (playRound(playerSelection, computerSelection).slice(0, 7) === "You Win") {
-        playerScore++;
-    }
-    if (playRound(playerSelection, computerSelection).slice(0, 8) === "You Lose") {
-        computerScore++;
-    }
-    alert(playRound(playerSelection, computerSelection));
- }
+const playerChoice = document.getElementsByClassName('playerChoice');
+const rock = document.getElementById('rock');
+const paper = document.getElementById('paper');
+const scissors = document.getElementById('scissors');
 
 
-
+rock.addEventListener('click', () => {
+    playerSelection = "ROCK";
+    playerScore += 1;
+    console.log(playRound());
+    console.log(playerSelection);
+    console.log(getComputerChoice());
+})
