@@ -40,20 +40,5 @@ let computerScore = 0;
     alert(playRound(playerSelection, computerSelection));
  }
 
- for (let i = 1; i <= 5; i++) {
-    game();
-    if (i == 5 && (playerScore > computerScore)) {
-        alert("Game Won!");
-        break;
-    }
-    if (i == 5 && (playerScore < computerScore)) {
-        alert("Game Lost!");
-        break;
-    }
-    if (i == 5 && (playerScore === computerScore)) {
-        alert("Game Draw");
-        break;
-    }
- }
 
 
