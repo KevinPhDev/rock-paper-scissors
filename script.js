@@ -31,15 +31,29 @@ let playerSelection = '';
 let computerSelection = getComputerChoice();
 
 const playerChoice = document.getElementsByClassName('playerChoice');
-const rock = document.getElementById('rock');
-const paper = document.getElementById('paper');
-const scissors = document.getElementById('scissors');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
 
 
-rock.addEventListener('click', () => {
+const rock = document.querySelector('#rock');
+
+rock.addEventListener('click', function(event) {
     playerSelection = "ROCK";
-    playerScore += 1;
-    console.log(playRound());
-    console.log(playerSelection);
-    console.log(getComputerChoice());
+    computerSelection = getComputerChoice();
+    let roundResult = playRound(playerSelection, computerSelection);
+    alert(roundResult);
+})
+
+paper.addEventListener('click', function(event) {
+    playerSelection = "PAPER";
+    computerSelection = getComputerChoice();
+    let roundResult = playRound(playerSelection, computerSelection);
+    alert(roundResult);
+})
+
+scissors.addEventListener('click', function(event) {
+    playerSelection = "SCISSORS";
+    computerSelection = getComputerChoice();
+    let roundResult = playRound(playerSelection, computerSelection);
+    alert(roundResult);
 })
