@@ -7,16 +7,22 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === "ROCK" && computerSelection === "PAPER") {
+        computerScore++;
         return `You Lose! Paper beats Rock! Player: ${playerScore} Computer: ${computerScore}`;
     } else if (playerSelection === "ROCK" && computerSelection === "SCISSORS") {
+        playerScore++;
         return `You Win! Rock beats Scissors! Player: ${playerScore} Computer: ${computerScore}`;
     } else if (playerSelection === "PAPER" && computerSelection === "ROCK") {
+        playerScore++;
         return `You Win! Paper beats Rock! Player: ${playerScore} Computer: ${computerScore}`;
     } else if (playerSelection === "PAPER" && computerSelection === "SCISSORS") {
+        computerScore++;
         return `You Lose! Scissors beats Paper! Player: ${playerScore} Computer: ${computerScore}`;
     } else if (playerSelection === "SCISSORS" && computerSelection === "ROCK") {
+        computerScore++;
         return `You Lose! Rock beats Scissors! Player: ${playerScore} Computer: ${computerScore}`;
     } else if (playerSelection === "SCISSORS" && computerSelection === "PAPER") {
+        playerScore++;
         return `You Win! Scissors beats Paper! Player: ${playerScore} Computer: ${computerScore}`;
     } else if (playerSelection === computerSelection) {
         return `It's a Draw! Player: ${playerScore} Computer: ${computerScore}`;
@@ -57,3 +63,4 @@ scissors.addEventListener('click', function(event) {
     let roundResult = playRound(playerSelection, computerSelection);
     alert(roundResult);
 })
+
