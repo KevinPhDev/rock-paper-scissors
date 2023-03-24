@@ -1,3 +1,16 @@
+const roundNumber = document.querySelector('#roundNumber')
+const roundResult = document.querySelector('#roundResult')
+const scoreTab = document.querySelector('#scoreTab')
+const resetButton = document.querySelector('#reset')
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+const rock = document.querySelector('#rock');
+
+let playerScore = 0;
+let computerScore = 0;
+let playerSelection = '';
+let computerSelection = getComputerChoice();
+
 function getComputerChoice() {
     let randomNumber = Math.floor((Math.random() * 3) + 1)
     if (randomNumber === 1) return "ROCK";
@@ -30,18 +43,6 @@ function playRound(playerSelection, computerSelection) {
         return playerSelection;
     }
 }
-
-let playerScore = 0;
-let computerScore = 0;
-let playerSelection = '';
-let computerSelection = getComputerChoice();
-
-const playerChoice = document.getElementsByClassName('playerChoice');
-const paper = document.querySelector('#paper');
-const scissors = document.querySelector('#scissors');
-
-
-const rock = document.querySelector('#rock');
 
 rock.addEventListener('click', function(event) {
     playerSelection = "ROCK";
