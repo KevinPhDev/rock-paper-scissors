@@ -11,6 +11,8 @@ let computerScore = 0;
 let playerSelection = '';
 let computerSelection = getComputerChoice();
 
+scoreTab.textContent = `Player: ${playerScore} Computer: ${computerScore}`
+
 function getComputerChoice() {
     let randomNumber = Math.floor((Math.random() * 3) + 1)
     if (randomNumber === 1) return "ROCK";
@@ -18,7 +20,7 @@ function getComputerChoice() {
     if (randomNumber === 3) return "SCISSORS";
 }
 
-function playRound(playerSelection, computerSelection) {
+function playRound() {
     if (playerSelection === "ROCK" && computerSelection === "PAPER") {
         computerScore++;
         roundResult.textContent = `You Lose! Paper beats Rock!`;
@@ -39,9 +41,13 @@ function playRound(playerSelection, computerSelection) {
         roundResult.textContent = `You Win! Scissors beats Paper!`;
     } else if (playerSelection === computerSelection) {
         roundResult.textContent = `It's a Draw!`;
-    } else {
-        roundResult.textContent = playerSelection;
     }
+}
+
+function resetGame() {
+    roundResult.textContent = 'Start Game';
+    playerScore = 0;
+    computerScore = 0;
 }
 
 rock.addEventListener('click', function(event) {
@@ -62,3 +68,6 @@ scissors.addEventListener('click', function(event) {
     playRound(playerSelection, computerSelection);
 })
 
+resetButton.addEventListener('click', function(event) {
+    resetGame();
+})
