@@ -21,47 +21,44 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === "ROCK" && computerSelection === "PAPER") {
         computerScore++;
-        return `You Lose! Paper beats Rock! Player: ${playerScore} Computer: ${computerScore}`;
+        roundResult.textContent = `You Lose! Paper beats Rock!`;
     } else if (playerSelection === "ROCK" && computerSelection === "SCISSORS") {
         playerScore++;
-        return `You Win! Rock beats Scissors! Player: ${playerScore} Computer: ${computerScore}`;
+        roundResult.textContent = `You Win! Rock beats Scissors!`;
     } else if (playerSelection === "PAPER" && computerSelection === "ROCK") {
         playerScore++;
-        return `You Win! Paper beats Rock! Player: ${playerScore} Computer: ${computerScore}`;
+        roundResult.textContent = `You Win! Paper beats Rock!`;
     } else if (playerSelection === "PAPER" && computerSelection === "SCISSORS") {
         computerScore++;
-        return `You Lose! Scissors beats Paper! Player: ${playerScore} Computer: ${computerScore}`;
+        roundResult.textContent = `You Lose! Scissors beats Paper!`;
     } else if (playerSelection === "SCISSORS" && computerSelection === "ROCK") {
         computerScore++;
-        return `You Lose! Rock beats Scissors! Player: ${playerScore} Computer: ${computerScore}`;
+        roundResult.textContent = `You Lose! Rock beats Scissors!`;
     } else if (playerSelection === "SCISSORS" && computerSelection === "PAPER") {
         playerScore++;
-        return `You Win! Scissors beats Paper! Player: ${playerScore} Computer: ${computerScore}`;
+        roundResult.textContent = `You Win! Scissors beats Paper!`;
     } else if (playerSelection === computerSelection) {
-        return `It's a Draw! Player: ${playerScore} Computer: ${computerScore}`;
+        roundResult.textContent = `It's a Draw!`;
     } else {
-        return playerSelection;
+        roundResult.textContent = playerSelection;
     }
 }
 
 rock.addEventListener('click', function(event) {
     playerSelection = "ROCK";
     computerSelection = getComputerChoice();
-    let roundResult = playRound(playerSelection, computerSelection);
-    alert(roundResult);
+    playRound(playerSelection, computerSelection);
 })
 
 paper.addEventListener('click', function(event) {
     playerSelection = "PAPER";
     computerSelection = getComputerChoice();
-    let roundResult = playRound(playerSelection, computerSelection);
-    alert(roundResult);
+    playRound(playerSelection, computerSelection);
 })
 
 scissors.addEventListener('click', function(event) {
     playerSelection = "SCISSORS";
     computerSelection = getComputerChoice();
-    let roundResult = playRound(playerSelection, computerSelection);
-    alert(roundResult);
+    playRound(playerSelection, computerSelection);
 })
 
