@@ -1,17 +1,17 @@
-const roundNumber = document.querySelector('#roundNumber')
+const round = document.querySelector('#round')
 const roundResult = document.querySelector('#roundResult')
 const scoreTab = document.querySelector('#scoreTab')
 const resetButton = document.querySelector('#reset')
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 const rock = document.querySelector('#rock');
+const gameResult = document.querySelector('#gameResult')
 
 let playerScore = 0;
 let computerScore = 0;
 let playerSelection = '';
 let computerSelection = getComputerChoice();
-
-scoreTab.textContent = `Player: ${playerScore} Computer: ${computerScore}`
+let roundNumber = 0;
 
 function getComputerChoice() {
     let randomNumber = Math.floor((Math.random() * 3) + 1)
@@ -51,34 +51,50 @@ function game() {
     } else if (playRound() === "Lose") {
         computerScore++;
     }
-    scoreTab.textContent = `Player: ${playerScore} Computer: ${computerScore}`
+    round.textContent = `Round ${roundNumber}`;
+    scoreTab.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
+}
+
+function disableButton() {
+    rock.disabled = true;
+    paper.disabled = true;
+    scissors.disabled = true;
+}
+
+function enableButton() {
+    rock.disabled = false;
+    paper.disabled = false;
+    scissors.disabled = false;
 }
 
 function resetGame() {
     roundResult.textContent = 'Start Game';
     playerScore = 0;
     computerScore = 0;
-    scoreTab.textContent = `Player: ${playerScore} Computer: ${computerScore}`
+    roundNumber = 0;
+    round.textContent = `Round ${roundNumber}`;
+    scoreTab.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
+    gameResult.textContent = '';
 }
 
-rock.addEventListener('click', function(event) {
+rock.addEventListener('click', () => {
     playerSelection = "ROCK";
     computerSelection = getComputerChoice();
     game();
 })
 
-paper.addEventListener('click', function(event) {
+paper.addEventListener('click', () => {
     playerSelection = "PAPER";
     computerSelection = getComputerChoice();
     game();
 })
 
-scissors.addEventListener('click', function(event) {
+scissors.addEventListener('click', () => {
     playerSelection = "SCISSORS";
     computerSelection = getComputerChoice();
     game();
 })
 
-resetButton.addEventListener('click', function(event) {
+resetButton.addEventListener('click', () => {
     resetGame();
 })
