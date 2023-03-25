@@ -51,8 +51,27 @@ function game() {
     } else if (playRound() === "Lose") {
         computerScore++;
     }
+    checkRound();
     round.textContent = `Round ${roundNumber}`;
     scoreTab.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
+}
+
+function checkRound() {
+    if (roundNumber == 5 && (playerScore > computerScore)) {
+        gameResult.textContent = 'Game Won';
+        disableButton();
+    }
+    if (roundNumber == 5 && (playerScore < computerScore)) {
+        gameResult.textContent = 'Game Lost';
+        disableButton();
+    }
+    if (roundNumber == 5 && (playerScore === computerScore)) {
+        gameResult.textContent = 'Game Draw';
+        disableButton();
+    }
+    if (roundNumber < 5) {
+        roundNumber++;
+    }
 }
 
 function disableButton() {
@@ -72,6 +91,7 @@ function resetGame() {
     playerScore = 0;
     computerScore = 0;
     roundNumber = 0;
+    enableButton();
     round.textContent = `Round ${roundNumber}`;
     scoreTab.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
     gameResult.textContent = '';
